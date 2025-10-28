@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>wt% → Stoichiometric Ratio (Al, Ce, Si, Ni, Mg)</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; }
+    body { margin: 2rem; }
+    h1 { margin-bottom: .25rem; }
+    .card { max-width: 720px; padding: 1rem 1.25rem; border: 1px solid #e5e7eb; border-radius: 12px; }
+    .row { display: grid; grid-template-columns: 110px 1fr; gap: .75rem; align-items: center; margin:.5rem 0; }
+    input[type="number"] { width: 120px; padding: .4rem .5rem; }
+    .muted { color: #6b7280; font-size: .9rem; }
+    .btn { margin-top: .75rem; padding:.55rem .9rem; border:1px solid #111827; border-radius:10px; background:#111827; color:#fff; cursor:pointer; }
+    .btn:disabled { opacity:.5; cursor:not-allowed; }
+    .tag { display:inline-block; padding:.2rem .45rem; background:#eef2ff; border:1px solid #c7d2fe; border-radius:6px; margin-right:.3rem; }
+    .result { margin-top:1rem; padding:.8rem; background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; }
+    .grid { display:grid; grid-template-columns: repeat(5, 1fr); gap:.5rem; }
+    .grid > div { text-align:center; }
+    hr { border:none; border-top:1px solid #e5e7eb; margin:1rem 0; }
+  </style>
+</head>
+<body>
+  <h1>wt% → Stoichiometry</h1>
+  <div class="muted">Works offline in your browser. Supports Al, Ce, Si, Ni, Mg.</div>
+  <div class="card">
+    <div class="muted">Select elements present, then enter their wt% (they don’t have to sum exactly to 100; we’ll renormalize).</div>
+    <div class="grid" style="margin:.5rem 0 0;">
+      <label><input type="checkbox" class="el" value="Al" checked> <span class="tag">Al</span></label>
+      <label><input type="checkbox" class="el" value="Ce" checked> <span class="tag">Ce</span></label>
+      <label><input type="checkbox" class="el" value="Si"> <span class="tag">Si</span></label>
+      <label><input type="checkbox" class="el" value="Ni"> <span class="tag">Ni</span></label>
+      <label><input type="checkbox" class="el" value="Mg"> <span class="tag">Mg</span></label>
+    </div>
+    <hr/>
+    <div id="inputs"></div>
+    <button class="btn" id="calcBtn">Convert</button>
+    <div id="out" class="result" style="display:none;"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
